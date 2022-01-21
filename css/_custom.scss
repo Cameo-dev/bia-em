@@ -1,0 +1,74 @@
+@use "sass:map";
+
+body {
+	background-color: rgba($secondary, 0.3);
+}
+
+.home-row {
+	height: calc(100vh - 57px);
+	
+	.step {
+		h2 {
+			min-height: 3em;
+		}
+
+		.card {
+			min-height: 10rem;
+
+			&:hover {
+				border: 1px solid $primary;
+			}
+
+			&.dropzone {
+				border: 1px dashed $secondary;
+
+				&.dragover {
+					border-color: $primary;
+					border-width: 3px;
+				}
+			}
+		}
+	}
+}
+
+input[type='file'] + label{
+	text-decoration: underline;
+	color: $primary;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.table {
+	--bs-table-active-color: white;
+	--bs-table-active-bg: $primary;
+
+	td:first-child {
+		font-weight: bold;
+	}
+}
+
+.card-text {
+	margin: 1rem 0;
+}
+
+.card-header {
+	padding-top: map.get($spacers, 5);
+	font-weight: $font-weight-normal;
+}
+
+.card-body {
+	padding: map.get($spacers, 3) map.get($spacers, 0) map.get($spacers, 5);
+	margin: map.get($spacers, 0) map.get($spacers, 5);
+	border-top: $border-width solid $secondary;
+}
+
+.form-label.required {
+	&::after {
+		content: '*';
+		color: red;
+		font-size: .9rem;
+		padding-left: .2rem;
+	}
+}
